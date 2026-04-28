@@ -37,7 +37,14 @@ export default function Navbar() {
             <span style={{ fontSize: 12, color: '#cbd5e1' }}>/</span>
             <span style={{ fontSize: 12, color: '#6366f1', fontWeight: 600 }}>{meta.title}</span>
           </div>
-          <h1 className="navbar-title">{meta.title}</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ width: 28, height: 28, background: 'linear-gradient(135deg,#6366f1,#818cf8)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h1 className="navbar-title">Student Management System</h1>
+          </div>
         </div>
       </div>
 
