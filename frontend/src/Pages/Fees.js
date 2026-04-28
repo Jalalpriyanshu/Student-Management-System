@@ -38,7 +38,7 @@ export default function Fees() {
   const fetchAll = useCallback(async () => {
     try {
       // fetch students separately so dropdown always works
-      const studentsRes = await API.get('/api/students/all?limit=1000');
+      const studentsRes = await API.get('/students/all?limit=1000');
       setStudents(studentsRes.data.students || studentsRes.data);
     } catch { console.error('Failed to load students'); }
 

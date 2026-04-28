@@ -61,6 +61,7 @@ const upload = multer({
 });
 
 app.use('/students',      studentRoutes);
+app.use('/api/students',  studentRoutes);
 console.log('✅ Student routes mounted');
 app.use('/api/auth',      authRoutes);
 console.log('✅ Auth routes mounted');

@@ -27,7 +27,7 @@ export default function Attendance() {
     const fetchData = async () => {
       try {
         const [sRes, rRes] = await Promise.all([
-          API.get('/api/students/all?limit=1000'),
+          API.get('/students/all?limit=1000'),
           API.get('/api/attendance/all'),
         ]);
         const studs = sRes.data.students || sRes.data;

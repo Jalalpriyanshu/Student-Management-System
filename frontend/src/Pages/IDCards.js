@@ -15,7 +15,7 @@ export default function IDCards() {
 
   useEffect(() => {
     document.title = 'ID Cards | SMS';
-    API.get('/api/students/all?limit=1000')
+    API.get('/students/all?limit=1000')
       .then(res => {
         const data = res.data.students || res.data;
         setStudents(data);

@@ -82,7 +82,7 @@ export default function Reports() {
   const fetchAll = useCallback(async () => {
     setLoading(true); setError('');
     try {
-      const res = await API.get('/api/students/all?limit=1000');
+      const res = await API.get('/students/all?limit=1000');
       setStudents(res.data.students || res.data);
     } catch {
       setError('Failed to load student data. Make sure the backend is running.');

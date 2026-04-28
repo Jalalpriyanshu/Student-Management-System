@@ -20,8 +20,8 @@ export default function StudentProfile() {
 
   useEffect(() => {
     const url = profileId
-      ? `/api/students/${profileId}`
-      : `/api/students/all?limit=1000`;
+      ? `/students/${profileId}`
+      : `/students/all?limit=1000`;
 
     API.get(url).then(res => {
       if (profileId) {
