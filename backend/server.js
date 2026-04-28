@@ -17,12 +17,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://student-management-system-y58w.vercel.app',
-    /\.vercel\.app$/,
-  ],
-  credentials: true,
+  origin: '*',
   methods: ['GET','POST','PUT','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
 }));
