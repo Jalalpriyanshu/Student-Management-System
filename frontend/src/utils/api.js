@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// Consolidate API URL logic. If deployed, this MUST be set in your dashboard (Vercel/Render/etc)
-export const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+export const BASE_URL = process.env.REACT_APP_API_URL || 'https://student-management-system-svoj.onrender.com';
 
 const API = axios.create({
   baseURL: BASE_URL,
