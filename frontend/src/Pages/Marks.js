@@ -27,7 +27,7 @@ export default function Marks() {
 
   useEffect(() => {
     Promise.all([
-      API.get('/students/all?limit=1000'),
+      API.get('/api/students/all?limit=1000'),
       API.get('/api/marks/all'),
     ]).then(([s, m]) => {
       setStudents(s.data.students || s.data);

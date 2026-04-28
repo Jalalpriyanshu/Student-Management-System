@@ -19,11 +19,11 @@ export default function StudentProfile() {
   const profileId = loggedUser.role === 'student' ? null : id;
 
   useEffect(() => {
-    const url = profileId
-      ? `/students/${profileId}`
-      : `/students/all?limit=1000`;
+    const endpoint = profileId
+      ? `/api/students/${profileId}`
+      : `/api/students/all?limit=1000`;
 
-    API.get(url).then(res => {
+    API.get(endpoint).then(res => {
       if (profileId) {
         setStudent(res.data);
       } else {

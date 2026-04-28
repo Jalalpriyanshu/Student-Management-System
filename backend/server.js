@@ -60,7 +60,12 @@ const upload = multer({
   },
 });
 
-app.use('/students',      studentRoutes);
+// Make upload middleware available globally before routes
+app.use((req, res, next) => {
+  req.upload = upload;
+  next();
+});
+
 app.use('/api/students',  studentRoutes);
 console.log('✅ Student routes mounted');
 app.use('/api/auth',      authRoutes);
@@ -73,12 +78,6 @@ app.use('/api/attendance',attendanceRoutes);
 console.log('✅ Attendance routes mounted');
 app.use('/api/fees',      feeRoutes);
 console.log('✅ Fee routes mounted');
-
-// Make upload middleware available globally
-app.use((req, res, next) => {
-  req.upload = upload;
-  next();
-});
 
 // MongoDB Connection
 mongoose

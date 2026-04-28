@@ -19,7 +19,7 @@ function UpdateStudent() {
 
   useEffect(() => {
     document.title = 'Update Student | SMS';
-    API.get(`/students/${id}`)
+    API.get(`/api/students/${id}`)
       .then(res => {
         setStudent(res.data);
         if (res.data.image) setCurrentImage(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${res.data.image}`);
@@ -50,7 +50,7 @@ function UpdateStudent() {
       const formData = new FormData();
       ['name', 'email', 'phone', 'course', 'age'].forEach(k => formData.append(k, student[k] || ''));
       if (image) formData.append('image', image);
-      await API.put(`/students/${id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+      await API.put(`/api/students/${id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
       navigate('/students');
     } catch (err) {
       setError(err.response?.data?.error || 'Error updating student.');

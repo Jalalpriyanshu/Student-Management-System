@@ -36,7 +36,7 @@ function Students() {
   const fetchStudents = async (page = 1) => {
     try {
       setLoading(true);
-      const res = await API.get(`/students/all?page=${page}&limit=${itemsPerPage}`);
+      const res = await API.get(`/api/students/all?page=${page}&limit=${itemsPerPage}`);
       setStudents(res.data.students || []);
       setTotalPages(res.data.pages || 1);
       setTotalStudents(res.data.total || 0);
@@ -51,7 +51,7 @@ function Students() {
   const searchStudents = async () => {
     try {
       setLoading(true);
-      const res = await API.get(`/students/search/query?q=${searchQuery}`);
+      const res = await API.get(`/api/students/search/query?q=${searchQuery}`);
       setStudents(res.data);
       setTotalPages(1);
       setTotalStudents(res.data.length);
@@ -64,7 +64,7 @@ function Students() {
 
   const handleDelete = async () => {
     try {
-      await API.delete(`/students/${deleteModal.id}`);
+      await API.delete(`/api/students/${deleteModal.id}`);
       toast.success(`${deleteModal.name} deleted successfully.`);
       setDeleteModal({ open: false, id: null, name: '' });
       if (searchQuery.trim()) searchStudents();
@@ -76,7 +76,7 @@ function Students() {
 
   const handleExport = async () => {
     try {
-      const res = await API.get('/students/all?limit=1000');
+      const res = await API.get('/api/students/all?limit=1000');
       exportStudentsPDF(res.data.students || res.data);
       toast.success('PDF exported successfully!');
     } catch {

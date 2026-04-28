@@ -57,7 +57,7 @@ const AddStudent = () => {
       Object.entries(student).forEach(([k, v]) => formData.append(k, v));
       if (image) formData.append('image', image);
 
-      await API.post('/students/add', formData, {
+      await API.post('/api/students/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 

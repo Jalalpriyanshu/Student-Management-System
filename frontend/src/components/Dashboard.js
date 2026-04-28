@@ -105,7 +105,7 @@ export default function Dashboard() {
       API.get(`${API_BASE}/timetable`),
       API.get(`${API_BASE}/announcements`),
       API.get(`${API_BASE}/exam-results`),
-      API.get('/students/all?limit=1000'),
+      API.get('/api/students/all?limit=1000'),
     ]).then(([s, p, a, t, an, ex, st]) => {
       setStats(s.data);
       setPerformers(p.data);
