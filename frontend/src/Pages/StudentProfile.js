@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import API from '../utils/api';
+import API, { getImageUrl } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import CircularProgress from '../components/CircularProgress';
 
@@ -62,7 +62,7 @@ export default function StudentProfile() {
         <div className="profile-info">
           <div className="profile-avatar-wrap">
             {student.image
-            ? <img src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${student.image}`} alt={student.name} className="profile-avatar" />
+            ? <img src={getImageUrl(student.image)} alt={student.name} className="profile-avatar" />
               : <div className="profile-avatar-placeholder">{student.name?.[0]?.toUpperCase()}</div>
             }
           </div>

@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import API from '../utils/api';
+import API, { getImageUrl } from '../utils/api';
 import IDCardModal from '../components/IDCardModal';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 export default function IDCards() {
   const [students,   setStudents]   = useState([]);
@@ -10,7 +8,6 @@ export default function IDCards() {
   const [search,     setSearch]     = useState('');
   const [loading,    setLoading]    = useState(true);
   const [selected,   setSelected]   = useState(null);   // student for modal
-  const [printAll,   setPrintAll]   = useState(false);  // bulk print mode
   const printRef = useRef();
 
   useEffect(() => {
@@ -166,7 +163,7 @@ export default function IDCards() {
                   {/* Photo */}
                   <div style={{ width: 72, height: 72, margin: '0 auto 12px', borderRadius: '50%', border: '3px solid rgba(255,255,255,0.3)', overflow: 'hidden', background: 'rgba(255,255,255,0.15)' }}>
                     {student.image
-                      ? <img src={`${API_URL}/${student.image}`} alt={student.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ? <img src={getImageUrl(student.image)} alt={student.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 900, color: 'white' }}>{initials}</div>
                     }
                   </div>
@@ -220,14 +217,14 @@ export default function IDCards() {
                 </div>
                 <div className="idcard-photo-wrap">
                   {student.image
-                    ? <img src={`${API_URL}/${student.image}`} alt={student.name} className="idcard-photo" />
+                    ? <img src={getImageUrl(student.image)} alt={student.name} className="idcard-photo" />
                     : <div className="idcard-photo-placeholder">{initials}</div>
                   }
                 </div>
                 <div className="idcard-info">
                   <div className="idcard-name">{student.name}</div>
                   <div className="idcard-course">{student.course}</div>
-                  <div className="idcard-id">ID: {studentId}</div>
+                  <div className="idcard-id">{studentId}</div>
                 </div>
                 <div className="idcard-details">
                   <div className="idcard-row"><span>Email:</span><span>{student.email}</span></div>

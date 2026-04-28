@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImageUrl } from '../utils/api';
 
 export default function IDCardModal({ open, student, onClose }) {
   if (!open || !student) return null;
@@ -41,7 +42,7 @@ export default function IDCardModal({ open, student, onClose }) {
 
               <div className="idcard-photo-wrap">
                 {student.image ? (
-                  <img src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${student.image}`} alt={student.name} className="idcard-photo" />
+                  <img src={getImageUrl(student.image)} alt={student.name} className="idcard-photo" />
                 ) : (
                   <div className="idcard-photo-placeholder">{initials}</div>
                 )}

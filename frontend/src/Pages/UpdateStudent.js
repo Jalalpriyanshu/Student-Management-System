@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import API from '../utils/api';
+import API, { getImageUrl } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const COURSES = ['Computer Science', 'Business Administration', 'Electrical Engineering',
@@ -22,7 +22,7 @@ function UpdateStudent() {
     API.get(`/api/students/${id}`)
       .then(res => {
         setStudent(res.data);
-        if (res.data.image) setCurrentImage(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${res.data.image}`);
+        if (res.data.image) setCurrentImage(getImageUrl(res.data.image));
       })
       .catch(() => { setError('Student not found.'); })
       .finally(() => setLoading(false));
