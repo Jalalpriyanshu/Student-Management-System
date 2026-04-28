@@ -36,7 +36,7 @@ export default function Register() {
     <div style={{ display:'flex', minHeight:'100vh', fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
 
       {/* LEFT */}
-      <div style={{ flex:1, background:'linear-gradient(145deg,#4f46e5 0%,#6366f1 40%,#7c3aed 100%)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'60px 48px', position:'relative', overflow:'hidden' }}>
+      <div className="register-left-panel" style={{ flex:1, background:'linear-gradient(145deg,#4f46e5 0%,#6366f1 40%,#7c3aed 100%)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'60px 48px', position:'relative', overflow:'hidden' }}>
         <div style={{ position:'absolute', top:-80, right:-80, width:300, height:300, borderRadius:'50%', background:'rgba(255,255,255,0.06)' }} />
         <div style={{ position:'absolute', bottom:-100, left:-60, width:350, height:350, borderRadius:'50%', background:'rgba(255,255,255,0.05)' }} />
 
@@ -74,7 +74,7 @@ export default function Register() {
       </div>
 
       {/* RIGHT */}
-      <div style={{ width:500, background:'#fff', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'48px', overflowY:'auto' }}>
+      <div className="register-right-panel" style={{ width:500, background:'#fff', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'48px', overflowY:'auto' }}>
         <div style={{ width:'100%', maxWidth:400 }}>
 
           <div style={{ marginBottom:28 }}>
@@ -155,7 +155,17 @@ export default function Register() {
           </p>
         </div>
       </div>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 768px) {
+          .register-left-panel { display: none !important; }
+          .register-right-panel {
+            width: 100% !important;
+            padding: 32px 20px !important;
+            min-height: 100vh;
+          }
+        }
+      `}</style>
     </div>
   );
 }

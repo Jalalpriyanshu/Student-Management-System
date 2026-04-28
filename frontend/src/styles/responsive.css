@@ -518,9 +518,9 @@ img, video, svg { max-width: 100%; }
   .login-form-wrapper { padding: 16px 12px; }
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ───────────────────────────────────────────────────────────
    PRINT STYLES
-═══════════════════════════════════════════════════════════ */
+─────────────────────────────────────────────────────────── */
 @media print {
   .sidebar, .navbar, .hamburger, .sidebar-overlay { display: none !important; }
   .main-content { margin-left: 0 !important; }

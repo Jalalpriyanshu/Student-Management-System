@@ -2747,6 +2747,34 @@ body {
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hide sidebar completely on login/register pages */
+  .login-container .sidebar,
+  .login-container ~ .sidebar { display: none !important; }
+
+  /* Login page full screen */
+  .login-container {
+    flex-direction: column !important;
+    padding: 16px !important;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide left decorative panel on mobile */
+  .login-container > div:first-child {
+    display: none !important;
+  }
+
+  /* Right panel full width */
+  .login-container > div:last-child {
+    width: 100% !important;
+    max-width: 420px !important;
+    padding: 28px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+  }
+}
 @media (max-width: 1200px) {
   .stat-grid { grid-template-columns: repeat(3, 1fr); }
   .dashboard-bottom { grid-template-columns: 1fr; }

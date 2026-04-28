@@ -37,7 +37,7 @@ export default function Login() {
     <div style={{ display: 'flex', minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
 
       {/* ── LEFT PANEL ─────────────────────────────────── */}
-      <div style={{
+      <div className="login-left-panel" style={{
         flex: 1, background: 'linear-gradient(145deg, #4f46e5 0%, #6366f1 40%, #7c3aed 100%)',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
         padding: '60px 48px', position: 'relative', overflow: 'hidden',
@@ -112,7 +112,7 @@ export default function Login() {
       </div>
 
       {/* ── RIGHT PANEL ────────────────────────────────── */}
-      <div style={{
+      <div className="login-right-panel" style={{
         width:480, background:'#fff', display:'flex', flexDirection:'column',
         alignItems:'center', justifyContent:'center', padding:'48px 48px',
         overflowY:'auto',
@@ -222,7 +222,17 @@ export default function Login() {
         </div>
       </div>
 
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 768px) {
+          .login-left-panel { display: none !important; }
+          .login-right-panel {
+            width: 100% !important;
+            padding: 32px 20px !important;
+            min-height: 100vh;
+          }
+        }
+      `}</style>
     </div>
   );
 }

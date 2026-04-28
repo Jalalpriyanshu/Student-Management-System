@@ -16,7 +16,16 @@ const feeRoutes       = require('./routes/feeRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://student-management-system-y58w.vercel.app',
+    /\.vercel\.app$/,
+  ],
+  credentials: true,
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization'],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
@@ -56,7 +65,7 @@ const upload = multer({
   },
 });
 
-app.use('/api/students',      studentRoutes);
+app.use('/students',      studentRoutes);
 console.log('✅ Student routes mounted');
 app.use('/api/auth',      authRoutes);
 console.log('✅ Auth routes mounted');
